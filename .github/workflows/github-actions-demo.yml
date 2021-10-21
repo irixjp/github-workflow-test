@@ -20,5 +20,7 @@ jobs:
           bash ./kata_setup.sh
           cd ~/
           ansible --version
-          cp -r /opt/kata-materials/ansible/materials .
+          cat ~/inventory_file
+          ansible all -m ping -o
+          cp -r /opt/kata-materials/materials/solutions .
           ls -alF
