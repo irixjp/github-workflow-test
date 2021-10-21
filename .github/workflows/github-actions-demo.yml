@@ -1,11 +1,12 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  Ansible-Katacoda:
     runs-on: ubuntu-20.04
     steps:
-      - name: List files in the repository
+      - name: Setting up the environment and testing the operation of first_playbook.yml
         run: |
+          bash -ex
           mkdir -p /opt/kata-materials
           cd /opt/kata-materials
           git clone --depth 1 https://github.com/irixjp/katacoda-scenarios.git .
@@ -20,9 +21,11 @@ jobs:
           bash ./kata_setup.sh
           cd ~/
           ansible --version
+          cat ~/.ansible.cfg
           cat ~/inventory_file
           ansible all -m ping -o
           cp -r /opt/kata-materials/materials/solutions .
           cd solutions
           ansible-playbook first_playbook.yml
+          ansible all -c local -m uri -a 'url=http://{{ansible_host}}/ return_content=yes'
 
