@@ -6,8 +6,6 @@ jobs:
     steps:
       - name: List files in the repository
         run: |
-          whoami
-          sudo -i
           mkdir -p /opt/kata-materials
           cd /opt/kata-materials
           git clone --depth 1 https://github.com/irixjp/katacoda-scenarios.git .
@@ -20,7 +18,8 @@ jobs:
           ansible --version
           ls -alF
           pwd
-          sudo ls -alF /root
           echo $HOME
           cat /etc/passwd
-          whoami
+          sudo ls -alF /root
+          sudo cp -r /root/inventory_file /root/.ansible.cfg /opt/kata-materials/materials /home/runner
+          ls -alF
