@@ -6,6 +6,7 @@ jobs:
     steps:
       - name: List files in the repository
         run: |
+          whoami
           sudo -i
           mkdir -p /opt/kata-materials
           cd /opt/kata-materials
@@ -19,3 +20,7 @@ jobs:
           ansible --version
           ls -alF
           pwd
+          ls -alF /root
+          echo $HOME
+          cat /etc/passwd
+          whoami
