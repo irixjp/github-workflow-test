@@ -23,4 +23,6 @@ jobs:
           cat ~/inventory_file
           ansible all -m ping -o
           cp -r /opt/kata-materials/materials/solutions .
-          ls -alF
+          cd solutions
+          ansible-playbook first_playbook.yml
+
