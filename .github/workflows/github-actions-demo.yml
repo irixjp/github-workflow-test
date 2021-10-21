@@ -6,6 +6,7 @@ jobs:
     steps:
       - name: List files in the repository
         run: |
+          sudo -i
           mkdir -p /opt/kata-materials
           cd /opt/kata-materials
           git clone --depth 1 https://github.com/irixjp/katacoda-scenarios.git .
@@ -15,3 +16,6 @@ jobs:
           cd tools
           bash ./kata_setup.sh
           cd ~/
+          ansible --version
+          ls -alF
+          pwd
