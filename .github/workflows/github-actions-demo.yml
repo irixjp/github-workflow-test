@@ -20,7 +20,7 @@ jobs:
           ansible --version
           ls -alF
           pwd
-          ls -alF /root
+          sudo ls -alF /root
           echo $HOME
           cat /etc/passwd
           whoami
